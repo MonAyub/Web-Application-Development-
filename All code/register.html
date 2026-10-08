@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নিবন্ধন | নরসিংদী জেলা ছাত্র পরিষদ, মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে অধ্যয়নরত নরসিংদী জেলার শিক্ষার্থীদের সংগঠন - নতুন সদস্য নিবন্ধন।">
+    <meta name="keywords" content="NDSC, MBSTU, Register, Student Registration, নরসিংদী">
+    
+    <!-- Google Fonts: Outfit (Headings) and Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Decorative Ambient Lights -->
+        <div class="ambient-light-1" style="top: 15%; left: 8%;"></div>
+        <div class="ambient-light-2" style="top: 55%; right: 8%;"></div>
+
+        <div class="auth-wrapper">
+            <div class="auth-card auth-card-wide glass-card">
+                <div class="auth-header">
+                    <div class="auth-logo-badge">
+                        <span>SAN</span>
+                    </div>
+                    <h1 class="auth-title">Member Registration</h1>
+                    <p class="auth-subtitle">Join the Narsingdi District Student Council network at MBSTU</p>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="registerAlert" class="modal-error-alert hidden"></div>
+                <div id="registerSuccessAlert" class="modal-success-alert hidden"></div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="modal-form-grid-2">
+                        <div class="form-group">
+                            <label for="regName">Full Name *</label>
+                            <input type="text" id="regName" placeholder="e.g. Md. Moniruzzaman" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email Address *</label>
+                            <input type="email" id="regEmail" placeholder="e.g. student@mbstu.ac.bd" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="modal-form-grid-2">
+                        <div class="form-group">
+                            <label for="regDept">Department *</label>
+                            <select id="regDept" required>
+                                <option value="">Select Department</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ICT">ICT</option>
+                                <option value="TE">TE</option>
+                                <option value="ME">ME</option>
+                                <option value="ESRM">ESRM</option>
+                                <option value="CPS">CPS</option>
+                                <option value="FTNS">FTNS</option>
+                                <option value="BGE">BGE</option>
+                                <option value="BMB">BMB</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="Management">Management</option>
+                                <option value="BBA">BBA</option>
+                                <option value="Economics">Economics</option>
+                                <option value="English">English</option>
+                                <option value="Veterinary Science and Animal Husbandry">Veterinary Science and Animal Husbandry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="regSession">Academic Session *</label>
+                            <select id="regSession" required>
+                                <option value="">Select Session</option>
+                                <option value="2024-2025">2024-2025</option>
+                                <option value="2023-2024">2023-2024</option>
+                                <option value="2022-2023">2022-2023</option>
+                                <option value="2021-2022">2021-2022</option>
+                                <option value="2020-2021">2020-2021</option>
+                                <option value="2019-2020">2019-2020</option>
+                                <option value="2018-2019">2018-2019</option>
+                                <option value="2017-2018">2017-2018</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-form-grid-2">
+                        <div class="form-group">
+                            <label for="regUpazila">Native Upazila *</label>
+                            <select id="regUpazila" required>
+                                <option value="">Select Upazila</option>
+                                <option value="Narsingdi Sadar">Narsingdi Sadar</option>
+                                <option value="Palash">Palash</option>
+                                <option value="Shibpur">Shibpur</option>
+                                <option value="Belabo">Belabo</option>
+                                <option value="Monohardi">Monohardi</option>
+                                <option value="Raipura">Raipura</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPhone">Mobile Phone *</label>
+                            <input type="tel" id="regPhone" placeholder="01XXXXXXXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regWhatsApp">WhatsApp Number (Optional)</label>
+                        <input type="tel" id="regWhatsApp" placeholder="01XXXXXXXXX (leave empty if same as phone)">
+                    </div>
+
+                    <div class="modal-form-grid-2">
+                        <div class="form-group">
+                            <label for="regPassword">Password * (min. 6 characters)</label>
+                            <div class="password-toggle-wrapper">
+                                <input type="password" id="regPassword" placeholder="Create strong password" required minlength="6" autocomplete="new-password">
+                                <button type="button" class="password-toggle-btn" id="toggleRegPassBtn" title="Toggle password">
+                                    <i data-lucide="eye" id="toggleRegPassIcon" class="icon-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password *</label>
+                            <div class="password-toggle-wrapper">
+                                <input type="password" id="regConfirmPassword" placeholder="Repeat your password" required minlength="6" autocomplete="new-password">
+                                <button type="button" class="password-toggle-btn" id="toggleRegConfirmBtn" title="Toggle password">
+                                    <i data-lucide="eye" id="toggleRegConfirmIcon" class="icon-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" id="regSubmitBtn" style="margin-top: 10px;">
+                        <i data-lucide="user-plus" class="icon-xs"></i>
+                        <span>Create Member Account</span>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.renderNavbar('register');
+
+            if (Auth.isLoggedIn()) {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            const regForm = document.getElementById('registerForm');
+            const regName = document.getElementById('regName');
+            const regEmail = document.getElementById('regEmail');
+            const regDept = document.getElementById('regDept');
+            const regSession = document.getElementById('regSession');
+            const regUpazila = document.getElementById('regUpazila');
+            const regPhone = document.getElementById('regPhone');
+            const regWhatsApp = document.getElementById('regWhatsApp');
+            const regPassword = document.getElementById('regPassword');
+            const regConfirmPassword = document.getElementById('regConfirmPassword');
+            const registerAlert = document.getElementById('registerAlert');
+            const registerSuccessAlert = document.getElementById('registerSuccessAlert');
+            const regSubmitBtn = document.getElementById('regSubmitBtn');
+
+            // Password toggles
+            function setupPasswordToggle(btnId, inputId, iconId) {
+                const btn = document.getElementById(btnId);
+                const input = document.getElementById(inputId);
+                const icon = document.getElementById(iconId);
+                if (btn && input) {
+                    btn.addEventListener('click', () => {
+                        const isPass = input.getAttribute('type') === 'password';
+                        input.setAttribute('type', isPass ? 'text' : 'password');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', isPass ? 'eye-off' : 'eye');
+                            if (typeof lucide !== 'undefined') lucide.createIcons();
+                        }
+                    });
+                }
+            }
+
+            setupPasswordToggle('toggleRegPassBtn', 'regPassword', 'toggleRegPassIcon');
+            setupPasswordToggle('toggleRegConfirmBtn', 'regConfirmPassword', 'toggleRegConfirmIcon');
+
+            if (regForm) {
+                regForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    registerAlert.classList.add('hidden');
+                    registerSuccessAlert.classList.add('hidden');
+
+                    const name = regName.value.trim();
+                    const email = regEmail.value.trim();
+                    const department = regDept.value;
+                    const session = regSession.value;
+                    const upazila = regUpazila.value;
+                    const phone = regPhone.value.trim();
+                    const whatsapp = regWhatsApp.value.trim() || phone;
+                    const password = regPassword.value.trim();
+                    const confirmPassword = regConfirmPassword.value.trim();
+
+                    if (!name || !email || !department || !session || !upazila || !phone || !password) {
+                        registerAlert.textContent = 'Please fill in all required fields.';
+                        registerAlert.classList.remove('hidden');
+                        return;
+                    }
+
+                    if (password.length < 6) {
+                        registerAlert.textContent = 'Password must be at least 6 characters long.';
+                        registerAlert.classList.remove('hidden');
+                        return;
+                    }
+
+                    if (password !== confirmPassword) {
+                        registerAlert.textContent = 'Passwords do not match. Please re-enter carefully.';
+                        registerAlert.classList.remove('hidden');
+                        return;
+                    }
+
+                    regSubmitBtn.disabled = true;
+                    regSubmitBtn.innerHTML = `<i data-lucide="loader" class="icon-xs animate-spin"></i> Registering...`;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                    try {
+                        const res = await fetch('http://127.0.0.1:5000/api/auth/register', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                name,
+                                email,
+                                password,
+                                department,
+                                session,
+                                upazila,
+                                phone,
+                                whatsapp
+                            })
+                        });
+                        const data = await res.json();
+
+                        if (data.success) {
+                            registerSuccessAlert.textContent = 'Registration successful! Redirecting to login...';
+                            registerSuccessAlert.classList.remove('hidden');
+                            setTimeout(() => {
+                                window.location.href = 'login.html?registered=true';
+                            }, 1200);
+                        } else {
+                            registerAlert.textContent = data.error || 'Failed to complete registration.';
+                            registerAlert.classList.remove('hidden');
+                            regSubmitBtn.disabled = false;
+                            regSubmitBtn.innerHTML = `<i data-lucide="user-plus" class="icon-xs"></i> <span>Create Member Account</span>`;
+                            if (typeof lucide !== 'undefined') lucide.createIcons();
+                        }
+                    } catch (err) {
+                        registerAlert.textContent = 'Network or server error. Please try again.';
+                        registerAlert.classList.remove('hidden');
+                        regSubmitBtn.disabled = false;
+                        regSubmitBtn.innerHTML = `<i data-lucide="user-plus" class="icon-xs"></i> <span>Create Member Account</span>`;
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

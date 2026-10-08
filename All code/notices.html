@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বিজ্ঞপ্তি ও সংবাদ | নরসিংদী জেলা ছাত্র পরিষদ, মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="নরসিংদী জেলা ছাত্র পরিষদ, এমবিএসটিইউ-এর সকল সাম্প্রতিক নোটিশ, প্রেস বিজ্ঞপ্তি এবং কার্যক্রমের খবর।">
+    <meta name="keywords" content="NDSC, Notices, News, Announcements, MBSTU, নরসিংদী জেলা ছাত্র পরিষদ">
+    
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="copyToast" class="toast hidden">
+        <i data-lucide="check-circle" class="icon-sm text-emerald"></i>
+        <span id="toastText">Action completed successfully!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Page Hero Banner -->
+        <div class="page-hero">
+            <div class="container">
+                <div class="badge">
+                    <i data-lucide="bell" class="icon-xs"></i>
+                    <span>Official Bulletins</span>
+                </div>
+                <h1 class="page-title text-gradient">Notices & News</h1>
+                <p class="page-subtitle">
+                    কার্যনির্বাহী কমিটির সর্বশেষ জরুরি নোটিশ, সার্কুলার, উন্নয়ন কার্যক্রম এবং ক্রীড়া ও সাংস্কৃতিক অর্জনের বিবরণী।
+                </p>
+            </div>
+        </div>
+
+        <!-- Notices Section -->
+        <section class="news-section" style="padding: 40px 0 80px;">
+            <div class="container">
+                
+                <!-- Admin Publish Bar (visible if admin) -->
+                <div class="admin-action-bar hidden" id="adminNoticeControls">
+                    <button class="btn btn-primary" id="openAddNoticeBtn" type="button">
+                        <i data-lucide="plus-circle" class="icon-xs"></i>
+                        <span>+ Publish New Announcement</span>
+                    </button>
+                </div>
+
+                <!-- Category Tabs & Search Bar -->
+                <div class="news-controls-row">
+                    <!-- Filter Pills -->
+                    <div class="news-filter-pills">
+                        <button class="filter-pill active" data-news-category="ALL">All Updates</button>
+                        <button class="filter-pill" data-news-category="NOTICE">Official Notices</button>
+                        <button class="filter-pill" data-news-category="NEWS">News & Press</button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="search-input-box" style="max-width: 320px;">
+                        <i data-lucide="search" class="icon-sm search-icon"></i>
+                        <input type="text" id="newsSearchInput" placeholder="Search announcements..." aria-label="Search Notices">
+                    </div>
+                </div>
+
+                <!-- Dynamic Notices Grid -->
+                <div class="news-grid" id="newsGrid" style="margin-top: 32px;"></div>
+
+                <!-- Empty State -->
+                <div class="empty-state-card glass-card hidden" id="newsEmptyState">
+                    <div class="empty-icon-circle">
+                        <i data-lucide="bell-off" class="icon-lg text-sky"></i>
+                    </div>
+                    <h3 class="empty-title">No Announcements Found</h3>
+                    <p class="empty-desc">There are no announcements currently published matching your filter category or search keywords.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Notice Details View -->
+    <div class="modal-overlay hidden" id="newsDetailsModal" role="dialog" aria-modal="true">
+        <div class="modal-close-backdrop" id="newsModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <button class="modal-close-btn" id="newsModalCloseBtn" aria-label="Close dialog">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="modal-header-info">
+                    <span class="modal-type-tag badge-notice" id="modalTypeTag">NOTICE</span>
+                    <h2 class="modal-title" id="modalTitle">Notice Title</h2>
+                    <div class="modal-publish-date-row">
+                        <i data-lucide="calendar" class="icon-xs text-sky"></i>
+                        <span id="modalDate">Published on: 2026-07-12</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body-content">
+                <p id="modalContent">Full announcement detail goes here...</p>
+            </div>
+            <div class="modal-footer-row">
+                <span class="modal-footer-org">Narsingdi District Student Council, MBSTU</span>
+                <button class="btn btn-secondary-compact" id="modalCloseActionBtn">Close Notice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Publish Announcement (Admin Only) -->
+    <div class="modal-overlay hidden" id="noticeModal">
+        <div class="modal-close-backdrop" id="noticeModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close-btn" id="noticeModalCloseBtn" type="button">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-info">
+                <span class="modal-type-tag badge-notice">ADMIN ACTION</span>
+                <h2 class="modal-title">Publish Announcement</h2>
+            </div>
+            <div id="noticeModalAlert" class="modal-error-alert hidden"></div>
+            <form id="noticeForm" class="modal-form">
+                <div class="form-group">
+                    <label for="noticeFormTitle">Announcement Title *</label>
+                    <input type="text" id="noticeFormTitle" placeholder="e.g. Freshers' Reception Budget Meeting" required>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="noticeFormCategory">Category *</label>
+                        <select id="noticeFormCategory" required>
+                            <option value="NOTICE">Official Notice</option>
+                            <option value="NEWS">Press & News</option>
+                            <option value="ANNOUNCEMENT">General Announcement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="noticeFormDate">Publish Date *</label>
+                        <input type="date" id="noticeFormDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="noticeFormContent">Notice Details / Full Content *</label>
+                    <textarea id="noticeFormContent" rows="5" placeholder="Write the full announcement detail here..." required style="width: 100%; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 12px 16px; color: #fff;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full">Publish Announcement</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="auth.js"></script>
+    <script src="notices.js"></script>
+</body>
+</html>

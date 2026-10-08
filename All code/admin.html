@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রশাসনিক প্যানেল | নরসিংদী জেলা ছাত্র পরিষদ, MBSTU</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="নরসিংদী জেলা ছাত্র পরিষদ, এমবিএসটিইউ - অ্যাডমিন পোর্টাল।">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="copyToast" class="toast hidden">
+        <i data-lucide="check-circle" class="icon-sm text-emerald"></i>
+        <span id="toastText">Action completed successfully!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Decorative Ambient Lights -->
+        <div class="ambient-light-1" style="top: 15%; left: 5%;"></div>
+        <div class="ambient-light-2" style="top: 55%; right: 5%;"></div>
+
+        <div class="dash-container" style="max-width: 1200px;">
+            <!-- Admin Header -->
+            <div class="welcome-hero glass-card" style="border-color: rgba(245, 158, 11, 0.35); background: linear-gradient(135deg, rgba(21, 30, 56, 0.9) 0%, rgba(15, 22, 41, 0.98) 100%);">
+                <div class="welcome-user-info">
+                    <div class="welcome-avatar" style="background: linear-gradient(135deg, var(--color-amber) 0%, #b45309 100%);">
+                        <i data-lucide="shield" class="icon-lg"></i>
+                    </div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                            <h1 class="welcome-name">Admin Control Center</h1>
+                            <span class="badge-role-admin">Super Admin</span>
+                        </div>
+                        <p class="welcome-meta">Logged in as <strong id="adminDisplayName" style="color: #fff; margin-left: 4px;">Admin</strong> • Council Executive Management</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <a href="dashboard.html" class="btn btn-secondary-compact">
+                        <i data-lucide="layout-dashboard" class="icon-xs"></i> User Dashboard
+                    </a>
+                    <button class="btn-logout" id="adminPageLogoutBtn" type="button">
+                        <i data-lucide="log-out" class="icon-xs"></i> Sign Out
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Overview Bar -->
+            <div class="stats-grid" style="margin-bottom: 32px;">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon-wrapper text-sky">
+                        <i data-lucide="users" class="icon-md"></i>
+                    </div>
+                    <div class="stat-count" id="statTotalMembers">-</div>
+                    <div class="stat-label">Council Members</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon-wrapper text-amber">
+                        <i data-lucide="bell" class="icon-md"></i>
+                    </div>
+                    <div class="stat-count" id="statTotalNotices">-</div>
+                    <div class="stat-label">Published Notices</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon-wrapper text-emerald">
+                        <i data-lucide="calendar" class="icon-md"></i>
+                    </div>
+                    <div class="stat-count" id="statTotalEvents">-</div>
+                    <div class="stat-label">Active Events</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon-wrapper text-sky">
+                        <i data-lucide="user-check" class="icon-md"></i>
+                    </div>
+                    <div class="stat-count" id="statTotalUsers">-</div>
+                    <div class="stat-label">Registered Accounts</div>
+                </div>
+            </div>
+
+            <!-- Admin Tab Navigation -->
+            <div class="admin-tab-nav">
+                <button class="admin-tab-btn active" data-tab="tabMembers">
+                    <i data-lucide="users" class="icon-xs"></i>
+                    <span>Members Directory</span>
+                </button>
+                <button class="admin-tab-btn" data-tab="tabNotices">
+                    <i data-lucide="bell" class="icon-xs"></i>
+                    <span>Notices & News</span>
+                </button>
+                <button class="admin-tab-btn" data-tab="tabEvents">
+                    <i data-lucide="calendar" class="icon-xs"></i>
+                    <span>Events Calendar</span>
+                </button>
+                <button class="admin-tab-btn" data-tab="tabUsers">
+                    <i data-lucide="shield-check" class="icon-xs"></i>
+                    <span>Registered Accounts</span>
+                </button>
+            </div>
+
+            <!-- ==================== TAB 1: MEMBERS ==================== -->
+            <div class="admin-tab-pane active" id="tabMembers">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+                    <div style="position: relative; width: 320px; max-width: 100%;">
+                        <input type="text" id="adminMemberSearch" placeholder="Search members by name, dept, upazila..." style="width: 100%; padding: 10px 14px; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #fff; font-size: 0.88rem;">
+                    </div>
+                    <button class="btn btn-primary" id="adminAddMemberBtn">
+                        <i data-lucide="user-plus" class="icon-xs"></i>
+                        <span>+ Add New Member</span>
+                    </button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Member Name</th>
+                                <th>Department</th>
+                                <th>Session</th>
+                                <th>Upazila</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminMembersTableBody">
+                            <tr><td colspan="7" class="text-center text-muted" style="padding: 24px;">Loading members...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ==================== TAB 2: NOTICES ==================== -->
+            <div class="admin-tab-pane" id="tabNotices">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+                    <div style="position: relative; width: 320px; max-width: 100%;">
+                        <input type="text" id="adminNoticeSearch" placeholder="Search notices by title or content..." style="width: 100%; padding: 10px 14px; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #fff; font-size: 0.88rem;">
+                    </div>
+                    <button class="btn btn-primary" id="adminAddNoticeBtn">
+                        <i data-lucide="plus-circle" class="icon-xs"></i>
+                        <span>+ Publish Announcement</span>
+                    </button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Category</th>
+                                <th>Notice Title</th>
+                                <th>Publish Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminNoticesTableBody">
+                            <tr><td colspan="5" class="text-center text-muted" style="padding: 24px;">Loading notices...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ==================== TAB 3: EVENTS ==================== -->
+            <div class="admin-tab-pane" id="tabEvents">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+                    <div style="position: relative; width: 320px; max-width: 100%;">
+                        <input type="text" id="adminEventSearch" placeholder="Search events by title or location..." style="width: 100%; padding: 10px 14px; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #fff; font-size: 0.88rem;">
+                    </div>
+                    <button class="btn btn-primary" id="adminAddEventBtn">
+                        <i data-lucide="calendar-plus" class="icon-xs"></i>
+                        <span>+ Create New Event</span>
+                    </button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Status</th>
+                                <th>Event Title</th>
+                                <th>Event Date</th>
+                                <th>Venue Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminEventsTableBody">
+                            <tr><td colspan="6" class="text-center text-muted" style="padding: 24px;">Loading events...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ==================== TAB 4: REGISTERED ACCOUNTS ==================== -->
+            <div class="admin-tab-pane" id="tabUsers">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+                    <div style="position: relative; width: 320px; max-width: 100%;">
+                        <input type="text" id="adminUserSearch" placeholder="Search registered accounts..." style="width: 100%; padding: 10px 14px; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); color: #fff; font-size: 0.88rem;">
+                    </div>
+                    <span style="font-size: 0.85rem; color: var(--color-text-muted);">
+                        Accounts created via public student registration & seeding
+                    </span>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Department & Session</th>
+                                <th>Upazila</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUsersTableBody">
+                            <tr><td colspan="7" class="text-center text-muted" style="padding: 24px;">Loading registered users...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== ADMIN MODALS ==================== -->
+
+    <!-- Add Member Modal -->
+    <div class="modal-overlay hidden" id="memberModal">
+        <div class="modal-close-backdrop" id="memberModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close-btn" id="memberModalCloseBtn" type="button">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-info">
+                <span class="modal-type-tag badge-notice">ADMIN ACTION</span>
+                <h2 class="modal-title">Add New Member</h2>
+            </div>
+            <div id="memberModalAlert" class="modal-error-alert hidden"></div>
+            <form id="memberForm" class="modal-form">
+                <div class="form-group">
+                    <label for="memberFormName">Member Full Name *</label>
+                    <input type="text" id="memberFormName" placeholder="e.g. Udoy Saha" required>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="memberFormDept">Department *</label>
+                        <select id="memberFormDept" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ICT">ICT</option>
+                            <option value="TE">TE</option>
+                            <option value="ME">ME</option>
+                            <option value="ESRM">ESRM</option>
+                            <option value="CPS">CPS</option>
+                            <option value="FTNS">FTNS</option>
+                            <option value="BGE">BGE</option>
+                            <option value="BMB">BMB</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Statistics">Statistics</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Management">Management</option>
+                            <option value="BBA">BBA</option>
+                            <option value="Economics">Economics</option>
+                            <option value="English">English</option>
+                            <option value="Veterinary Science and Animal Husbandry">Veterinary Science and Animal Husbandry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberFormSession">Academic Session *</label>
+                        <input type="text" id="memberFormSession" placeholder="e.g. 2022-2023" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="memberFormUpazila">Native Upazila *</label>
+                    <select id="memberFormUpazila" required>
+                        <option value="">Select Upazila</option>
+                        <option value="Narsingdi Sadar">Narsingdi Sadar</option>
+                        <option value="Palash">Palash</option>
+                        <option value="Shibpur">Shibpur</option>
+                        <option value="Belabo">Belabo</option>
+                        <option value="Monohardi">Monohardi</option>
+                        <option value="Raipura">Raipura</option>
+                    </select>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="memberFormPhone">Contact Phone *</label>
+                        <input type="tel" id="memberFormPhone" placeholder="01XXXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberFormWhatsApp">WhatsApp Number</label>
+                        <input type="tel" id="memberFormWhatsApp" placeholder="01XXXXXXXXX">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
+                    <button type="submit" class="btn btn-primary w-full">Save Member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Publish Notice Modal -->
+    <div class="modal-overlay hidden" id="noticeModal">
+        <div class="modal-close-backdrop" id="noticeModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close-btn" id="noticeModalCloseBtn" type="button">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-info">
+                <span class="modal-type-tag badge-notice">ADMIN ACTION</span>
+                <h2 class="modal-title">Publish Announcement</h2>
+            </div>
+            <div id="noticeModalAlert" class="modal-error-alert hidden"></div>
+            <form id="noticeForm" class="modal-form">
+                <div class="form-group">
+                    <label for="noticeFormTitle">Announcement Title *</label>
+                    <input type="text" id="noticeFormTitle" placeholder="e.g. Annual General Meeting Circular" required>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="noticeFormCategory">Category *</label>
+                        <select id="noticeFormCategory" required>
+                            <option value="NOTICE">Official Notice</option>
+                            <option value="NEWS">Press & News</option>
+                            <option value="ANNOUNCEMENT">General Announcement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="noticeFormDate">Publish Date *</label>
+                        <input type="date" id="noticeFormDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="noticeFormContent">Notice Details / Full Content *</label>
+                    <textarea id="noticeFormContent" rows="5" placeholder="Write the full announcement detail here..." required style="width: 100%; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 12px 16px; color: #fff;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full">Publish Announcement</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Event Modal -->
+    <div class="modal-overlay hidden" id="eventModal">
+        <div class="modal-close-backdrop" id="eventModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close-btn" id="eventModalCloseBtn" type="button">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-info">
+                <span class="modal-type-tag badge-notice">ADMIN ACTION</span>
+                <h2 class="modal-title">Create New Event</h2>
+            </div>
+            <div id="eventModalAlert" class="modal-error-alert hidden"></div>
+            <form id="eventForm" class="modal-form">
+                <div class="form-group">
+                    <label for="eventFormTitle">Event Title *</label>
+                    <input type="text" id="eventFormTitle" placeholder="e.g. Freshers' Reception & Farewell 2026" required>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="eventFormType">Event Status *</label>
+                        <select id="eventFormType" required>
+                            <option value="Upcoming">Upcoming</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventFormDate">Event Date *</label>
+                        <input type="date" id="eventFormDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventFormLocation">Venue Location *</label>
+                    <input type="text" id="eventFormLocation" placeholder="e.g. MBSTU Multipurpose Bldg" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventFormDesc">Event Description *</label>
+                    <textarea id="eventFormDesc" rows="4" placeholder="Brief overview of the event, itinerary, and participants..." required style="width: 100%; background: rgba(7, 10, 19, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 12px 16px; color: #fff;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full">Create Event</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
