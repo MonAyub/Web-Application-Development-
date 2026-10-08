@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সাইন ইন | নরসিংদী জেলা ছাত্র পরিষদ, মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="নরসিংদী জেলা ছাত্র পরিষদ, এমবিএসটিইউ - একাউন্টে লগইন করুন।">
+    <meta name="keywords" content="NDSC, MBSTU, Login, Student Council, নরসিংদী">
+    
+    <!-- Google Fonts: Outfit (Headings) and Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Decorative Ambient Lights -->
+        <div class="ambient-light-1" style="top: 20%; left: 10%;"></div>
+        <div class="ambient-light-2" style="top: 60%; right: 10%;"></div>
+
+        <div class="auth-wrapper">
+            <div class="auth-card glass-card">
+                <div class="auth-header">
+                    <div class="auth-logo-badge">
+                        <span>SAN</span>
+                    </div>
+                    <h1 class="auth-title">Welcome Back</h1>
+                    <p class="auth-subtitle">Sign in to your student or administrative account</p>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="loginAlert" class="modal-error-alert hidden"></div>
+                <div id="loginSuccessAlert" class="modal-success-alert hidden"></div>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address or Username</label>
+                        <input type="text" id="loginEmail" placeholder="e.g. member@email.com or admin" required autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-toggle-wrapper">
+                            <input type="password" id="loginPassword" placeholder="Enter your account password" required autocomplete="current-password">
+                            <button type="button" class="password-toggle-btn" id="togglePasswordBtn" title="Toggle password visibility">
+                                <i data-lucide="eye" id="togglePasswordIcon" class="icon-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" id="loginSubmitBtn">
+                        <i data-lucide="log-in" class="icon-xs"></i>
+                        <span>Sign In to Account</span>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Don't have an account yet? <a href="register.html">Register here</a></p>
+                    <p style="margin-top: 8px; font-size: 0.8rem; color: var(--color-text-muted);">
+                        Administrator? You can sign in using your admin credentials above.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.renderNavbar('login');
+
+            // If already logged in, redirect
+            if (Auth.isLoggedIn()) {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            const loginForm = document.getElementById('loginForm');
+            const loginEmail = document.getElementById('loginEmail');
+            const loginPassword = document.getElementById('loginPassword');
+            const loginAlert = document.getElementById('loginAlert');
+            const loginSuccessAlert = document.getElementById('loginSuccessAlert');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+            const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+            const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+
+            // Check if redirected with a message
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                loginSuccessAlert.textContent = 'Account registered successfully! Please sign in with your credentials.';
+                loginSuccessAlert.classList.remove('hidden');
+            }
+
+            // Toggle password visibility
+            if (togglePasswordBtn && loginPassword) {
+                togglePasswordBtn.addEventListener('click', () => {
+                    const isPassword = loginPassword.getAttribute('type') === 'password';
+                    loginPassword.setAttribute('type', isPassword ? 'text' : 'password');
+                    if (togglePasswordIcon) {
+                        togglePasswordIcon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    }
+                });
+            }
+
+            if (loginForm) {
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    loginAlert.classList.add('hidden');
+                    loginSuccessAlert.classList.add('hidden');
+
+                    const email = loginEmail.value.trim();
+                    const password = loginPassword.value.trim();
+
+                    if (!email || !password) {
+                        loginAlert.textContent = 'Please enter both email/username and password.';
+                        loginAlert.classList.remove('hidden');
+                        return;
+                    }
+
+                    loginSubmitBtn.disabled = true;
+                    loginSubmitBtn.innerHTML = `<i data-lucide="loader" class="icon-xs animate-spin"></i> Signing in...`;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                    try {
+                        const res = await fetch('http://127.0.0.1:5000/api/auth/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, password })
+                        });
+                        const data = await res.json();
+
+                        if (data.success && data.token && data.user) {
+                            Auth.setSession(data.token, data.user);
+                            loginSuccessAlert.textContent = 'Login successful! Redirecting to dashboard...';
+                            loginSuccessAlert.classList.remove('hidden');
+
+                            const redirectUrl = urlParams.get('redirect');
+                            setTimeout(() => {
+                                if (redirectUrl) {
+                                    window.location.href = decodeURIComponent(redirectUrl);
+                                } else {
+                                    window.location.href = 'dashboard.html';
+                                }
+                            }, 800);
+                        } else {
+                            loginAlert.textContent = data.error || 'Invalid credentials. Please try again.';
+                            loginAlert.classList.remove('hidden');
+                            loginSubmitBtn.disabled = false;
+                            loginSubmitBtn.innerHTML = `<i data-lucide="log-in" class="icon-xs"></i> <span>Sign In to Account</span>`;
+                            if (typeof lucide !== 'undefined') lucide.createIcons();
+                        }
+                    } catch (err) {
+                        loginAlert.textContent = 'Network or server error. Please ensure backend is running.';
+                        loginAlert.classList.remove('hidden');
+                        loginSubmitBtn.disabled = false;
+                        loginSubmitBtn.innerHTML = `<i data-lucide="log-in" class="icon-xs"></i> <span>Sign In to Account</span>`;
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

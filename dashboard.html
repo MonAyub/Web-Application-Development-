@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইউজার ড্যাশবোর্ড | নরসিংদী জেলা ছাত্র পরিষদ, MBSTU</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="নরসিংদী জেলা ছাত্র পরিষদ, এমবিএসটিইউ - মেম্বার ড্যাশবোর্ড।">
+    <meta name="keywords" content="NDSC, Dashboard, Member, MBSTU, নরসিংদী">
+    
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Decorative Ambient Lights -->
+        <div class="ambient-light-1" style="top: 15%; left: 5%;"></div>
+        <div class="ambient-light-2" style="top: 50%; right: 5%;"></div>
+
+        <div class="dash-container">
+            <!-- Welcome Hero Card -->
+            <div class="welcome-hero glass-card">
+                <div class="welcome-user-info">
+                    <div class="welcome-avatar">
+                        <span id="dashAvatarInitials">U</span>
+                        <img id="dashAvatarImg" class="hidden" alt="Profile Picture">
+                    </div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                            <h1 class="welcome-name" id="dashWelcomeName">Loading Profile...</h1>
+                            <span id="dashRoleBadge"></span>
+                        </div>
+                        <p class="welcome-meta" id="dashWelcomeMeta">Mawlana Bhashani Science and Technology University</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-logout" id="dashLogoutBtn" type="button" style="padding: 10px 18px; font-size: 0.88rem;">
+                        <i data-lucide="log-out" class="icon-xs"></i>
+                        <span>Sign Out</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Action Grid -->
+            <div class="dash-grid-4">
+                <!-- 1. Profile -->
+                <a href="profile.html" class="dash-action-card glass-card">
+                    <div>
+                        <div class="dash-action-header">
+                            <div class="dash-action-icon">
+                                <i data-lucide="user" class="icon-md"></i>
+                            </div>
+                            <h3 class="dash-action-title">My Profile</h3>
+                        </div>
+                        <p class="dash-action-desc">View and update your personal details, phone number, and academic session.</p>
+                    </div>
+                    <span class="btn-text" style="display: inline-flex; align-items: center; gap: 6px;">
+                        Edit Profile <i data-lucide="arrow-right" class="icon-xs"></i>
+                    </span>
+                </a>
+
+                <!-- 2. Members Directory -->
+                <a href="members.html" class="dash-action-card glass-card">
+                    <div>
+                        <div class="dash-action-header">
+                            <div class="dash-action-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                                <i data-lucide="users" class="icon-md"></i>
+                            </div>
+                            <h3 class="dash-action-title">Member Directory</h3>
+                        </div>
+                        <p class="dash-action-desc">Find and connect with fellow students from Narsingdi across all MBSTU departments.</p>
+                    </div>
+                    <span class="btn-text" style="color: #10b981; display: inline-flex; align-items: center; gap: 6px;">
+                        Browse Members <i data-lucide="arrow-right" class="icon-xs"></i>
+                    </span>
+                </a>
+
+                <!-- 3. Notices & News -->
+                <a href="notices.html" class="dash-action-card glass-card">
+                    <div>
+                        <div class="dash-action-header">
+                            <div class="dash-action-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                                <i data-lucide="bell" class="icon-md"></i>
+                            </div>
+                            <h3 class="dash-action-title">Notices & News</h3>
+                        </div>
+                        <p class="dash-action-desc">Read executive committee announcements, freshers notices, and urgent circulars.</p>
+                    </div>
+                    <span class="btn-text" style="color: #f59e0b; display: inline-flex; align-items: center; gap: 6px;">
+                        View Notices <i data-lucide="arrow-right" class="icon-xs"></i>
+                    </span>
+                </a>
+
+                <!-- 4. Events -->
+                <a href="events.html" class="dash-action-card glass-card">
+                    <div>
+                        <div class="dash-action-header">
+                            <div class="dash-action-icon" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">
+                                <i data-lucide="calendar" class="icon-md"></i>
+                            </div>
+                            <h3 class="dash-action-title">Events Calendar</h3>
+                        </div>
+                        <p class="dash-action-desc">Stay updated on annual picnics, freshers receptions, river cruises, and tournaments.</p>
+                    </div>
+                    <span class="btn-text" style="color: #a855f7; display: inline-flex; align-items: center; gap: 6px;">
+                        Explore Events <i data-lucide="arrow-right" class="icon-xs"></i>
+                    </span>
+                </a>
+
+                <!-- 5. Admin Portal (Admin Only) -->
+                <a href="admin.html" class="dash-action-card glass-card hidden" id="dashAdminActionCard" style="border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.05);">
+                    <div>
+                        <div class="dash-action-header">
+                            <div class="dash-action-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--color-amber);">
+                                <i data-lucide="shield" class="icon-md"></i>
+                            </div>
+                            <h3 class="dash-action-title">Admin Portal</h3>
+                        </div>
+                        <p class="dash-action-desc">Full CRUD control for council members, notices, events, and registered accounts.</p>
+                    </div>
+                    <span class="btn-text" style="color: var(--color-amber); display: inline-flex; align-items: center; gap: 6px;">
+                        Manage Council <i data-lucide="arrow-right" class="icon-xs"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Profile Overview Card -->
+            <div class="profile-card glass-card" style="margin-bottom: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="font-size: 1.35rem; font-weight: 700; color: #fff;">Student Profile Overview</h2>
+                    <a href="profile.html" class="btn btn-secondary-compact">
+                        <i data-lucide="edit-3" class="icon-xs"></i> Edit Details
+                    </a>
+                </div>
+
+                <div class="info-field-group">
+                    <div class="info-item">
+                        <div class="info-item-label">Full Name</div>
+                        <div class="info-item-value" id="statName">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Email Address</div>
+                        <div class="info-item-value" id="statEmail">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Department</div>
+                        <div class="info-item-value" id="statDept">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Session</div>
+                        <div class="info-item-value" id="statSession">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Native Upazila</div>
+                        <div class="info-item-value" id="statUpazila">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Mobile Phone</div>
+                        <div class="info-item-value" id="statPhone">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">WhatsApp</div>
+                        <div class="info-item-value" id="statWhatsApp">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-item-label">Member Since</div>
+                        <div class="info-item-value" id="statJoined">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Council Announcements Widget -->
+            <div class="glass-card" style="padding: 28px; border-radius: var(--radius-lg);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                    <h2 style="font-size: 1.35rem; font-weight: 700; color: #fff;">Latest Council Announcements</h2>
+                    <a href="notices.html" class="btn-text">View All Notices &rarr;</a>
+                </div>
+                <div id="dashRecentNotices">
+                    <p style="color: var(--color-text-muted); font-size: 0.88rem;">Loading recent notices...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

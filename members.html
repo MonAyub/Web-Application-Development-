@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সদস্য তালিকা | নরসিংদী জেলা ছাত্র পরিষদ, মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে অধ্যয়নরত নরসিংদী জেলার শিক্ষার্থীদের পূর্ণাঙ্গ সদস্য তালিকা ও ডিরেক্টরি।">
+    <meta name="keywords" content="NDSC, Members, Directory, MBSTU, নরসিংদী জেলা ছাত্র পরিষদ">
+    
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top hidden" title="উপরে যান">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="copyToast" class="toast hidden">
+        <i data-lucide="check-circle" class="icon-sm text-emerald"></i>
+        <span id="toastText">Action completed successfully!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar sticky">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon-box">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="brand-sub">STUDENT'S ASSOCIATION • MBSTU</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="mainNavMenu">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+                <a href="members.html" class="nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="nav-link" data-page="events">Events</a>
+            </nav>
+
+            <!-- Desktop Auth Wrapper -->
+            <div class="nav-actions-wrapper" id="navAuthWrapper"></div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <nav class="mobile-nav-menu" id="mobileNavMenu">
+                <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
+                <a href="members.html" class="mobile-nav-link" data-page="members">Members</a>
+                <a href="notices.html" class="mobile-nav-link" data-page="notices">Notices</a>
+                <a href="events.html" class="mobile-nav-link" data-page="events">Events</a>
+            </nav>
+            <div class="mobile-auth-wrapper" id="mobileAuthWrapper"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Page Hero Banner -->
+        <div class="page-hero">
+            <div class="container">
+                <div class="badge">
+                    <i data-lucide="users" class="icon-xs"></i>
+                    <span>Council Directory</span>
+                </div>
+                <h1 class="page-title text-gradient">Members Directory</h1>
+                <p class="page-subtitle">
+                    মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে অধ্যয়নরত নরসিংদী জেলার সকল সম্মানিত শিক্ষার্থী ভাই ও বোনদের তথ্যাবলী।
+                </p>
+            </div>
+        </div>
+
+        <!-- Directory Section -->
+        <section class="members-section" style="padding: 40px 0 80px;">
+            <div class="container">
+                
+                <!-- Admin Add Member Bar (visible only if admin logged in) -->
+                <div class="admin-action-bar hidden" id="adminMemberControls">
+                    <button class="btn btn-primary" id="openAddMemberBtn" type="button">
+                        <i data-lucide="user-plus" class="icon-xs"></i>
+                        <span>+ Add New Member</span>
+                    </button>
+                </div>
+
+                <!-- Search and Filter Header Controls -->
+                <div class="filter-controls-wrapper glass-card">
+                    <!-- Text Search Input -->
+                    <div class="search-input-box">
+                        <i data-lucide="search" class="icon-sm search-icon"></i>
+                        <input type="text" id="memberSearchInput" placeholder="Search by name, department, session, or upazila..." aria-label="Search Members">
+                    </div>
+
+                    <!-- Dropdown Filter Groups -->
+                    <div class="filter-dropdowns">
+                        <div class="select-wrapper">
+                            <select id="filterUpazila" aria-label="Filter by Upazila">
+                                <option value="">All Upazilas</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="icon-xs select-arrow"></i>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <select id="filterDepartment" aria-label="Filter by Department">
+                                <option value="">All Departments</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ICT">ICT</option>
+                                <option value="TE">TE</option>
+                                <option value="ME">ME</option>
+                                <option value="ESRM">ESRM</option>
+                                <option value="CPS">CPS</option>
+                                <option value="FTNS">FTNS</option>
+                                <option value="BGE">BGE</option>
+                                <option value="BMB">BMB</option>
+                                <option value="Pharmacy">Pharmacy</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="Management">Management</option>
+                                <option value="BBA">BBA</option>
+                                <option value="Economics">Economics</option>
+                                <option value="English">English</option>
+                                <option value="Veterinary Science and Animal Husbandry">Veterinary Science and Animal Husbandry</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="icon-xs select-arrow"></i>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <select id="filterSession" aria-label="Filter by Academic Session">
+                                <option value="">All Sessions</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="icon-xs select-arrow"></i>
+                        </div>
+
+                        <button id="resetFiltersBtn" class="btn-reset-filters hidden" title="Reset all filters">
+                            <i data-lucide="rotate-ccw" class="icon-xs"></i>
+                            <span>Reset</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Counter & Status -->
+                <div class="results-status-bar">
+                    <span id="memberCountText" class="member-count-badge">Loading members...</span>
+                    <span id="noResultsText" class="no-results-msg hidden">No members found matching your search criteria.</span>
+                </div>
+
+                <!-- Dynamic Members Card Grid -->
+                <div class="members-grid" id="membersGrid"></div>
+
+                <!-- Empty State Placeholder -->
+                <div class="empty-state-card glass-card hidden" id="membersEmptyState">
+                    <div class="empty-icon-circle">
+                        <i data-lucide="search-x" class="icon-lg text-sky"></i>
+                    </div>
+                    <h3 class="empty-title">No Matching Members Found</h3>
+                    <p class="empty-desc">We couldn't find any council members matching your current search or filters. Try adjusting your terms.</p>
+                    <button class="btn btn-secondary-compact" id="emptyStateResetBtn" type="button">Reset All Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Add New Member (Admin Only) -->
+    <div class="modal-overlay hidden" id="memberModal">
+        <div class="modal-close-backdrop" id="memberModalBackdropClose"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close-btn" id="memberModalCloseBtn" type="button">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header-info">
+                <span class="modal-type-tag badge-notice">ADMIN ACTION</span>
+                <h2 class="modal-title">Add New Member</h2>
+            </div>
+            <div id="memberModalAlert" class="modal-error-alert hidden"></div>
+            <form id="memberForm" class="modal-form">
+                <div class="form-group">
+                    <label for="memberFormName">Member Full Name *</label>
+                    <input type="text" id="memberFormName" placeholder="e.g. Udoy Saha" required>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="memberFormDept">Department *</label>
+                        <select id="memberFormDept" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ICT">ICT</option>
+                            <option value="TE">TE</option>
+                            <option value="ME">ME</option>
+                            <option value="ESRM">ESRM</option>
+                            <option value="CPS">CPS</option>
+                            <option value="FTNS">FTNS</option>
+                            <option value="BGE">BGE</option>
+                            <option value="BMB">BMB</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Statistics">Statistics</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Management">Management</option>
+                            <option value="BBA">BBA</option>
+                            <option value="Economics">Economics</option>
+                            <option value="English">English</option>
+                            <option value="Veterinary Science and Animal Husbandry">Veterinary Science and Animal Husbandry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberFormSession">Academic Session *</label>
+                        <input type="text" id="memberFormSession" placeholder="e.g. 2022-2023" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="memberFormUpazila">Native Upazila *</label>
+                    <select id="memberFormUpazila" required>
+                        <option value="">Select Upazila</option>
+                        <option value="Narsingdi Sadar">Narsingdi Sadar</option>
+                        <option value="Palash">Palash</option>
+                        <option value="Shibpur">Shibpur</option>
+                        <option value="Belabo">Belabo</option>
+                        <option value="Monohardi">Monohardi</option>
+                        <option value="Raipura">Raipura</option>
+                    </select>
+                </div>
+                <div class="modal-form-grid-2">
+                    <div class="form-group">
+                        <label for="memberFormPhone">Contact Phone *</label>
+                        <input type="tel" id="memberFormPhone" placeholder="01XXXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberFormWhatsApp">WhatsApp Number</label>
+                        <input type="tel" id="memberFormWhatsApp" placeholder="01XXXXXXXXX">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
+                    <button type="submit" class="btn btn-primary w-full">Save Member to Directory</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-inner">SAN</div>
+                </div>
+                <div class="footer-brand-text">
+                    <span class="fb-main">নরসিংদী জেলা ছাত্র পরিষদ</span>
+                    <span class="fb-sub">মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Narsingdi District Student Council, MBSTU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="auth.js"></script>
+    <script src="members.js"></script>
+</body>
+</html>
